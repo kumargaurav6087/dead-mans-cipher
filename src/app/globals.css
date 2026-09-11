@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 11 16 29;
+    --foreground: 243 244 246;
+    --card: 19 27 46;
+    --card-hover: 24 35 58;
+    --border: 35 48 74;
+    --gold: 217 160 54;
+    --gold-hover: 235 178 70;
+  }
+}
+
+body {
+  color: rgb(var(--foreground));
+  background-color: #0b101d;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(26, 38, 66, 0.5) 0%, transparent 75%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.8) 0%, transparent 50%);
+  background-attachment: fixed;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b101d;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2d4a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d9a036;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0C3 0%, #D9A036 50%, #B37B1B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #E5B849 0%, #D9A036 50%, #C48B25 100%);
+  color: #0B101D;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 14px rgba(217, 160, 54, 0.25);
+}
+
+.gold-button:hover {
+  background: linear-gradient(135deg, #F0C456 0%, #E5B849 50%, #D9A036 100%);
+  box-shadow: 0 6px 20px rgba(217, 160, 54, 0.4);
+  transform: translateY(-1px);
+}
+
+.naval-card {
+  background: rgba(19, 27, 46, 0.85);
+  border: 1px solid rgba(42, 56, 84, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 0.75rem;
+}
+
+.naval-card-hover {
+  transition: all 0.2s ease-in-out;
+}
+.naval-card-hover:hover {
+  border-color: rgba(217, 160, 54, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.parchment-banner {
+  background: linear-gradient(135deg, rgba(38, 29, 16, 0.9) 0%, rgba(20, 16, 10, 0.9) 100%);
+  border: 1px solid rgba(217, 160, 54, 0.3);
+}
