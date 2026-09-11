@@ -119,11 +119,29 @@ export default function HomePage() {
             {/* Visual Pirate Ship Frame Box */}
             <div className="relative rounded-2xl overflow-hidden border border-[#2A3854] bg-[#131B2E]/80 p-3 backdrop-blur-md shadow-2xl">
               <div className="aspect-[4/3] rounded-xl relative overflow-hidden flex flex-col justify-end p-5">
+                {/* Ken Burns cinematic pan/zoom animation — no video file needed */}
+                <style>{`
+                  @keyframes kenBurns {
+                    0%   { transform: scale(1.08) translate(0%, 0%); }
+                    25%  { transform: scale(1.12) translate(-1.5%, -1%); }
+                    50%  { transform: scale(1.10) translate(-0.5%, -2%); }
+                    75%  { transform: scale(1.13) translate(1%, -0.5%); }
+                    100% { transform: scale(1.08) translate(0%, 0%); }
+                  }
+                  @keyframes fogDrift {
+                    0%,100% { opacity: 0.18; }
+                    50%     { opacity: 0.28; }
+                  }
+                  .ken-burns-img { animation: kenBurns 18s ease-in-out infinite; }
+                  .fog-layer     { animation: fogDrift 8s ease-in-out infinite; }
+                `}</style>
                 <img
                   src="/images/backgrounds/hero-ocean.jpg"
                   alt="Dead Man's Cipher Hero Ocean Ship"
-                  className="absolute inset-0 w-full h-full object-cover rounded-xl"
+                  className="ken-burns-img absolute inset-0 w-full h-full object-cover rounded-xl opacity-90"
                 />
+                {/* Animated fog / mist overlay for depth */}
+                <div className="fog-layer absolute inset-0 bg-gradient-to-br from-[#0B101D]/30 via-transparent to-[#1B294A]/20 rounded-xl pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0B101D] via-[#0B101D]/40 to-transparent" />
 
                 <div className="relative z-10 space-y-2">
