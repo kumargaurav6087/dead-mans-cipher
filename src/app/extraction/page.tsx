@@ -14,11 +14,7 @@ export default function ExtractionPage() {
   );
 
   const handleScan = (content: string) => {
-    setScannedPayload(
-      content
-        ? `U2FsdGVkX19xVzV4...${btoa(content).slice(0, 20)}...QnJvd3NlckNyeXB0bw==`
-        : "U2FsdGVkX19xVzV4QnJvd3NlckNyeXB0bzEyMzQ1Njc4OTA="
-    );
+    setScannedPayload(content || "");
   };
 
   return (

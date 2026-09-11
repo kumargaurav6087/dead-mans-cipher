@@ -55,7 +55,15 @@ export function DecryptionPanel({
             </button>
           </div>
           <div className="w-full bg-[#0B101D] border border-[#1E2D4A] rounded-xl p-3.5 text-xs text-gray-300 font-mono break-all max-h-28 overflow-y-auto">
-            {foundPayload || "Paste or scan payload above..."}
+            {(() => {
+              if (!foundPayload) return "Paste or scan payload above...";
+              try {
+                const parsed = JSON.parse(foundPayload);
+                return parsed.ciphertext || foundPayload;
+              } catch {
+                return foundPayload;
+              }
+            })()}
           </div>
         </div>
 
