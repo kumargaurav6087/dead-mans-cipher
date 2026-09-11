@@ -145,7 +145,8 @@ export function useEncryption() {
           throw new Error("Invalid payload format: missing ciphertext.");
         }
         if (!ivBase64) {
-          throw new Error("Missing IV/Nonce required for AES-GCM decryption.");
+          // Provide 12-byte default IV fallback if raw ciphertext string is passed
+          ivBase64 = "AAAAAAAAAAAAAAAA";
         }
 
         // Import AES Key
